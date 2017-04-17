@@ -31,8 +31,8 @@
  
 就请我喝杯咖啡吧！  
 
-<image width=40% src="http://wx2.sinaimg.cn/mw690/e21cb47ely1fepp8oke4pj20go0p0di6.jpg"></image>
-<image width=40% src="http://wx3.sinaimg.cn/mw690/e21cb47ely1fepp8owikzj20yi1au0x8.jpg"></image>
+<image width=30% src="http://wx2.sinaimg.cn/mw690/e21cb47ely1fepp8oke4pj20go0p0di6.jpg"></image>
+<image width=30% src="http://wx3.sinaimg.cn/mw690/e21cb47ely1fepp8owikzj20yi1au0x8.jpg"></image>
 
 ## 最后
 
