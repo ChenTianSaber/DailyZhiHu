@@ -92,14 +92,20 @@ public class DetaiContentActivity extends Activity {
                             "file:///android_asset/zhihu.css" +
                             "\" " +
                             "rel=\"stylesheet\" />\n";
-
-                    String html = "<!DOCTYPE html>\n" +
-                            "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                            "<head>\n" +
-                            "\t<meta charset=\"utf-8\" />\n</head>\n" +
-                            "<body>\n"  + css +
-                            response.body().getBody().replace("<div class=\"img-place-holder\">", "") + "\n<body>";
-                    contentView.loadDataWithBaseURL("x-data://base",html,"text/html","utf-8",null);
+                    String html = response.body().getBody();
+                    String shareUrl = response.body().getShareUrl();
+                    //有时候返回的没有body,我们得用ShareUrl来代替
+                    if(html!=null){
+                        html = "<!DOCTYPE html>\n" +
+                                "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
+                                "<head>\n" +
+                                "\t<meta charset=\"utf-8\" />\n</head>\n" +
+                                "<body>\n" + css +
+                                response.body().getBody().replace("<div class=\"img-place-holder\">", "") + "\n<body>";
+                        contentView.loadDataWithBaseURL("x-data://base", html, "text/html", "utf-8", null);
+                    }else {
+                        contentView.loadUrl(shareUrl);
+                    }
 
                     String imageUrl = response.body().getImage();
                     if(imageUrl!=null){
