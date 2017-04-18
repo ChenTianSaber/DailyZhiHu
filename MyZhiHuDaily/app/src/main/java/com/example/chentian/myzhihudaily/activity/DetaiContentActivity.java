@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -65,6 +66,7 @@ public class DetaiContentActivity extends Activity {
                 return (event.getAction() == MotionEvent.ACTION_MOVE);
             }
         });
+        contentView.setWebViewClient(new WebViewClient());
 
         topImage = (ImageView) findViewById(R.id.top_image);
         topTitle = (TextView) findViewById(R.id.top_titlt);
@@ -93,7 +95,7 @@ public class DetaiContentActivity extends Activity {
                             "\" " +
                             "rel=\"stylesheet\" />\n";
                     String html = response.body().getBody();
-                    String shareUrl = response.body().getShareUrl();
+                    final String shareUrl = response.body().getShareUrl();
                     //有时候返回的没有body,我们得用ShareUrl来代替
                     if(html!=null){
                         html = "<!DOCTYPE html>\n" +
