@@ -31,9 +31,9 @@
 <image width=40% src="http://wx4.sinaimg.cn/mw690/e21cb47ely1fepmdmdpr8j20nk12uazd.jpg"></image>    
 
 ##### 4月21号，更新了夜间模式：
-<div  align="center">    
-	<img src="http://upload-images.jianshu.io/upload_images/2649238-5991054c60d0c6a7.gif?imageMogr2/auto-orient/strip" width = "50%" height = "50%"/>
-</div>
+ 
+<image width=40% src="http://wx2.sinaimg.cn/mw690/e21cb47ely1feu59sg614j20nk12u42u.jpg "></image>
+<image width=40% src="http://wx4.sinaimg.cn/mw690/e21cb47ely1feu59svuymj20nk12sn26.jpg"></image>
 
 今天做了夜间模式。  
 
