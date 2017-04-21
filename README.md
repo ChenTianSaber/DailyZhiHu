@@ -32,7 +32,7 @@
 
 ##### 4月21号，更新了夜间模式：
  
-<image width=40% src="http://wx2.sinaimg.cn/mw690/e21cb47ely1feu59sg614j20nk12u42u.jpg "></image>
+<image width=40% src="http://wx2.sinaimg.cn/mw690/e21cb47ely1feu59sg614j20nk12u42u.jpg"></image>
 <image width=40% src="http://wx4.sinaimg.cn/mw690/e21cb47ely1feu59svuymj20nk12sn26.jpg"></image>
 
 今天做了夜间模式。  
