@@ -1,14 +1,16 @@
 package com.example.chentian.myzhihudaily.activity;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -30,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by chentian on 12/04/2017.
  */
 
-public class DetaiContentActivity extends Activity {
+public class DetaiContentActivity extends BaseActivity {
     String contentId;
     WebView contentView;
     ImageView topImage;
@@ -39,6 +41,7 @@ public class DetaiContentActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.detail_layout);
         //将状态栏透明
         if(Build.VERSION.SDK_INT>=21){
@@ -54,6 +57,10 @@ public class DetaiContentActivity extends Activity {
     }
 
     private void init(){
+        TypedValue colorbackground = new TypedValue();//背景色
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorBackground, colorbackground, true);
+
         Intent intent = getIntent();
         contentId = intent.getStringExtra("contentId");
         contentView = (WebView) findViewById(R.id.content_webview);
@@ -89,11 +96,19 @@ public class DetaiContentActivity extends Activity {
                 if(response.isSuccessful()&&response.body()!=null){
                     //解析成功
 
-                    //添加css样式
-                    String css = "<link type=\"text/css\" href=\"" +
-                            "file:///android_asset/zhihu.css" +
-                            "\" " +
-                            "rel=\"stylesheet\" />\n";
+                    //根据是否为夜间模式来添加css样式
+                    String css;
+                    if(!isDay){
+                        css = "<link type=\"text/css\" href=\"" +
+                                "file:///android_asset/zhihu_dark.css" +
+                                "\" " +
+                                "rel=\"stylesheet\" />\n";
+                    }else {
+                        css = "<link type=\"text/css\" href=\"" +
+                                "file:///android_asset/zhihu.css" +
+                                "\" " +
+                                "rel=\"stylesheet\" />\n";
+                    }
                     String html = response.body().getBody();
                     final String shareUrl = response.body().getShareUrl();
                     //有时候返回的没有body,我们得用ShareUrl来代替

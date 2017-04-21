@@ -8,15 +8,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:background="?attr/menuBackground"
+            android:id="@+id/menu_one">
 
             <ImageView
                 android:layout_width="50dp"
@@ -28,10 +29,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="陈添"
-                android:textColor="#ffffff"
+                android:textColor="?attr/menuTextColor"
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:background="?attr/menuBackground"
+                android:id="@+id/menu_text_one"/>
 
         </LinearLayout>
 
@@ -48,7 +51,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:background="?attr/menuBackground">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -61,9 +65,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="热门"
-                    android:textColor="#ffffff"
+                    android:textColor="?attr/menuTextColor"
                     android:textSize="14sp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:background="?attr/menuBackground"
+                    android:id="@+id/menu_text_two"/>
 
             </LinearLayout>
 
@@ -74,7 +80,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:background="?attr/menuBackground">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -83,13 +90,15 @@
                     android:src="@drawable/about"/>
 
                 <TextView
+                    android:id="@+id/menu_text_three"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="关于"
-                    android:textColor="#ffffff"
+                    android:textColor="?attr/menuTextColor"
                     android:textSize="14sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:background="?attr/menuBackground"/>
 
             </LinearLayout>
 
@@ -100,7 +109,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:background="?attr/menuBackground">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -109,13 +119,15 @@
                     android:src="@drawable/setting"/>
 
                 <TextView
+                    android:id="@+id/menu_text_four"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="设置"
-                    android:textColor="#ffffff"
+                    android:textColor="?attr/menuTextColor"
                     android:textSize="14sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:background="?attr/menuBackground"/>
 
             </LinearLayout>
 
@@ -126,7 +138,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/menuBackgroundDark"
         android:padding="15dp"
         android:orientation="horizontal"
         android:id="@+id/goto_home">
@@ -135,7 +147,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="?attr/menuBackgroundDark"
+            android:id="@+id/menu_layout_one">
 
             <ImageView
                 android:layout_width="0dp"
@@ -148,15 +162,19 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="首页"
-                android:textColor="#ffffff"/>
+                android:textColor="?attr/menuTextColor"
+                android:background="?attr/menuBackgroundDark"
+                android:id="@+id/menu_text_five"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/menu_layout_two"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="?attr/menuBackgroundDark">
 
             <ImageView
                 android:layout_width="0dp"
@@ -182,17 +200,21 @@
         </android.support.v7.widget.RecyclerView>
 
         <LinearLayout
+            android:id="@+id/menu_layout_three"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="?attr/menuBackgroundDark"
             android:padding="15dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <LinearLayout
+                android:id="@+id/menu_layout_four"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="?attr/menuBackgroundDark">
 
                 <ImageView
                     android:layout_width="0dp"
@@ -201,11 +223,13 @@
                     android:src="@drawable/download"/>
 
                 <TextView
+                    android:id="@+id/menu_text_six"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="完成"
-                    android:textColor="#ffffff"/>
+                    android:textColor="?attr/menuTextColor"
+                    android:background="?attr/menuBackgroundDark"/>
 
             </LinearLayout>
 
@@ -213,20 +237,26 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:id="@+id/day_night_mode"
+                android:background="?attr/menuBackgroundDark">
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/dark"/>
+                    android:src="@drawable/dark"
+                    android:id="@+id/day_night_img"
+                    />
 
                 <TextView
+                    android:id="@+id/menu_text_seven"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="夜间"
-                    android:textColor="#ffffff"/>
+                    android:textColor="?attr/menuTextColor"
+                    android:background="?attr/menuBackgroundDark"/>
 
             </LinearLayout>
 

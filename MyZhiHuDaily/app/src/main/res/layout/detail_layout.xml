@@ -33,7 +33,7 @@
                 android:shadowColor="#ff000000"
                 android:shadowRadius="1"
                 android:shadowDx="3"
-                android:shadowDy="3"  />
+                android:shadowDy="3"/>
 
             <TextView
                 android:id="@+id/top_source"

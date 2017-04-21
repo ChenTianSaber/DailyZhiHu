@@ -2,6 +2,12 @@
 <resources>
 
     <attr name="rightPadding" format="dimension" />
+    <attr name="colorBackground" format="color" />
+    <attr name="colorTextColor" format="color" />
+    <attr name="menuTextColor" format="color" />
+    <attr name="menuBackground" format="color" />
+    <attr name="menuBackgroundDark" format="color" />
+    <attr name="lineColor" format="color" />
 
     <declare-styleable name="SlidingMenu">
         <attr name="rightPadding" />

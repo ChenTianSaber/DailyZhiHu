@@ -3,9 +3,14 @@
     <!--<color name="colorPrimary">#50B49A</color>-->
     <!--<color name="colorPrimaryDark">#50AA9A</color>-->
     <color name="colorPrimary">#5072AA</color>
-    <color name="colorPrimaryDark">#5072A5</color>
+    <color name="colorPrimaryDark">#5072A0</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorText">#3D3D3D</color>
     <color name="colorLine">#DBDBDB</color>
+
+    <color name="color3F3F3F">#3F3F3F</color>
+    <color name="color3A3A3A">#3A3A3A</color>
+    <color name="color868686">#868686</color>
+    <color name="color8A9599">#8A9599</color>
 </resources>

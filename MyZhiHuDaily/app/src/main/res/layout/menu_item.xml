@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_recycler_layout"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/colorPrimary"
     android:orientation="horizontal"
     android:padding="15dp"
-    android:id="@+id/menu_recycler_layout">
+    android:background="?attr/menuBackground">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:background="?attr/menuBackground"
+        android:orientation="horizontal"
+        android:id="@+id/menu_recy_layoutone">
 
         <TextView
             android:id="@+id/menu_text"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="?attr/menuBackground"
+            android:gravity="center"
             android:text="首页"
-            android:textColor="#ffffff"
-            android:gravity="center"/>
+            android:textColor="?attr/menuTextColor" />
 
     </LinearLayout>
 
@@ -29,8 +32,10 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="?attr/menuBackground"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:id="@+id/menu_recy_layouttwo">
 
         <ImageView
             android:layout_width="0dp"
