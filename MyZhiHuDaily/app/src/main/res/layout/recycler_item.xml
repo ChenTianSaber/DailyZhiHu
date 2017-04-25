@@ -1,33 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="101dp"
-    android:orientation="vertical"
     android:id="@+id/home_recycler"
-    android:background="?attr/colorBackground">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorBackground"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/item_home_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="?attr/colorPrimary"
+        android:gravity="center"
+        android:text="2017-4-20"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_content_id"
         android:layout_width="1px"
-        android:layout_height="1px"
-        android:id="@+id/tv_content_id"/>
+        android:layout_height="1px" />
+
+    <TextView
+        android:id="@+id/tv_date_title"
+        android:layout_width="1px"
+        android:layout_height="1px" />
 
     <LinearLayout
+        android:id="@+id/recycler_item"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="?attr/colorBackground"
         android:orientation="horizontal"
-        android:padding="@dimen/content_padding"
-        android:id="@+id/recycler_item"
-        android:background="?attr/colorBackground">
+        android:padding="@dimen/content_padding">
 
         <TextView
             android:id="@+id/recycler_title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="@string/test_title"
-            android:textSize="16sp"
-            android:textColor="?attr/colorTextColor"
             android:paddingRight="5dp"
+            android:text="@string/test_title"
+            android:textColor="?attr/colorTextColor"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -35,19 +53,18 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher"
-            android:paddingLeft="5dp"/>
+            android:paddingLeft="5dp"
+            android:src="@mipmap/ic_launcher" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/line_layout"
-        android:layout_marginLeft="@dimen/content_padding"
-        android:layout_marginRight="@dimen/content_padding"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/content_padding"
+        android:layout_marginRight="@dimen/content_padding"
         android:background="?attr/lineColor"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:orientation="vertical"></LinearLayout>
 
 </LinearLayout>

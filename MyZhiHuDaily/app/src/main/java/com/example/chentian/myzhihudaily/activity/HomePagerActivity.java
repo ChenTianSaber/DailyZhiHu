@@ -41,10 +41,11 @@ import static com.example.chentian.myzhihudaily.R.id.fragment_homepager;
  */
 
 public class HomePagerActivity extends BaseActivity implements View.OnClickListener{
+
     SlidingMenu menu;
     View menuView;
 
-    ImageView openMenu,openCalendar,DayNightImg;
+    ImageView openMenu,DayNightImg;
     LinearLayout hotNewsLayout,gotoHomeLayout,aboutLayout,settingLayout,dayNightLayout;
     TextView homeTitle,dayNightText;
 
@@ -89,7 +90,6 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
 
     private void initView() {
         openMenu = (ImageView) findViewById(R.id.open_menu);
-        openCalendar = (ImageView) findViewById(R.id.open_calendar);
         hotNewsLayout = (LinearLayout) menuView.findViewById(R.id.hot_news);
         homeTitle = (TextView) findViewById(R.id.home_title);
         gotoHomeLayout = (LinearLayout) menuView.findViewById(R.id.goto_home);
@@ -99,6 +99,8 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         menuOne = (LinearLayout) menuView.findViewById(R.id.menu_one);
         DayNightImg = (ImageView) menuView.findViewById(R.id.day_night_img);
         dayNightText = (TextView) menuView.findViewById(R.id.menu_text_seven);
+
+        homeFragment.setActivityTitle(homeTitle);
 
         colorLayout.add(menuOne);
         colorLayoutDark.add(gotoHomeLayout);
@@ -123,7 +125,6 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         colorRelayout.add((RelativeLayout) findViewById(R.id.home_layout));
 
         openMenu.setOnClickListener(this);
-        openCalendar.setOnClickListener(this);
         hotNewsLayout.setOnClickListener(this);
         gotoHomeLayout.setOnClickListener(this);
         aboutLayout.setOnClickListener(this);
@@ -325,10 +326,6 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.open_menu:
                 menu.toggle();
-                break;
-
-            case R.id.open_calendar:
-
                 break;
 
             case R.id.goto_home:
