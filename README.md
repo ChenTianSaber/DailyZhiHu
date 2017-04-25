@@ -45,7 +45,7 @@ webview的夜间模式是用改变css样式来实现的，其他的都是通过�
 
 ##### 4月25号，更新了往期消息：
  
-！[往期消息]（"http://upload-images.jianshu.io/upload_images/2649238-d06e96bbd2575f78.gif"）
+![](http://upload-images.jianshu.io/upload_images/2649238-d06e96bbd2575f78.gif)
 
 今天做了往期消息。  
 
