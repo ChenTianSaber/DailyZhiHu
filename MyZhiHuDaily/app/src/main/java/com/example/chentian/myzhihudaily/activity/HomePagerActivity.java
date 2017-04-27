@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.chentian.myzhihudaily.R;
 import com.example.chentian.myzhihudaily.adapter.MenuRecyclerAdapter;
 import com.example.chentian.myzhihudaily.fragment.AboutFragment;
+import com.example.chentian.myzhihudaily.fragment.DownloadFragment;
 import com.example.chentian.myzhihudaily.fragment.HomePagerFragment;
 import com.example.chentian.myzhihudaily.fragment.HotNewsFragment;
 import com.example.chentian.myzhihudaily.fragment.SettingFragment;
@@ -46,7 +47,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
     View menuView;
 
     ImageView openMenu,DayNightImg;
-    LinearLayout hotNewsLayout,gotoHomeLayout,aboutLayout,settingLayout,dayNightLayout;
+    LinearLayout hotNewsLayout,gotoHomeLayout,aboutLayout,settingLayout,dayNightLayout,downloadLayout;
     TextView homeTitle,dayNightText;
 
     LinearLayout menuOne;
@@ -62,6 +63,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         ThemeContentFragment themeContentFragment;
         AboutFragment aboutFragment;
         SettingFragment settingFragment;
+        DownloadFragment downloadFragment;
 
         RecyclerView menuRecycler;
         MenuRecyclerAdapter menuAdapter;
@@ -99,6 +101,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         menuOne = (LinearLayout) menuView.findViewById(R.id.menu_one);
         DayNightImg = (ImageView) menuView.findViewById(R.id.day_night_img);
         dayNightText = (TextView) menuView.findViewById(R.id.menu_text_seven);
+        downloadLayout = (LinearLayout) menuView.findViewById(R.id.menu_layout_four);
 
         homeFragment.setActivityTitle(homeTitle);
 
@@ -110,7 +113,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         colorLayoutDark.add((LinearLayout) menuView.findViewById(R.id.menu_layout_one));
         colorLayoutDark.add((LinearLayout) menuView.findViewById(R.id.menu_layout_two));
         colorLayoutDark.add((LinearLayout) menuView.findViewById(R.id.menu_layout_three));
-        colorLayoutDark.add((LinearLayout) menuView.findViewById(R.id.menu_layout_four));
+        colorLayoutDark.add(downloadLayout);
         colorLayoutDark.add(dayNightLayout);
 
         colorText.add((TextView) menuView.findViewById(R.id.menu_text_one));
@@ -130,6 +133,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         aboutLayout.setOnClickListener(this);
         settingLayout.setOnClickListener(this);
         dayNightLayout.setOnClickListener(this);
+        downloadLayout.setOnClickListener(this);
     }
 
     private void initDatas() {
@@ -217,6 +221,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         hotNewsFragment = new HotNewsFragment();
         aboutFragment = new AboutFragment();
         settingFragment = new SettingFragment();
+        downloadFragment = new DownloadFragment();
     }
 
     public void changeFragment(Fragment to){
@@ -230,6 +235,7 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
         refreshUI();
         homeFragment.RefreshUI();
         hotNewsFragment.RefreshUI();
+        downloadFragment.RefreshUI();
         if(themeContentFragment!=null){
             themeContentFragment.RefreshUI();
         }
@@ -330,6 +336,8 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
 
             case R.id.goto_home:
                 homeTitle.setText("今日热闻");
+                homeFragment = new HomePagerFragment();
+                homeFragment.setActivityTitle(homeTitle);
                 changeFragment(homeFragment);
                 break;
 
@@ -353,6 +361,11 @@ public class HomePagerActivity extends BaseActivity implements View.OnClickListe
                 DayNightImg.setImageResource(isDay?R.drawable.sun:R.drawable.dark);
                 dayNightText.setText(isDay?"日间":"夜间");
                 changeTheme();
+                break;
+
+            case R.id.menu_layout_four:
+                homeTitle.setText("离线下载");
+                changeFragment(downloadFragment);
                 break;
         }
     }

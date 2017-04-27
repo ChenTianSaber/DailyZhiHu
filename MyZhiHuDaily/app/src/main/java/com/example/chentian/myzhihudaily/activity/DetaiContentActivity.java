@@ -1,13 +1,11 @@
 package com.example.chentian.myzhihudaily.activity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -15,11 +13,13 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.chentian.myzhihudaily.R;
 import com.example.chentian.myzhihudaily.api.ZhiHuDailyAPI;
 import com.example.chentian.myzhihudaily.been.ContentBeen;
+import com.example.chentian.myzhihudaily.database.Artical;
 import com.example.chentian.myzhihudaily.service.ContentService;
 
 import retrofit2.Call;
@@ -38,10 +38,13 @@ public class DetaiContentActivity extends BaseActivity {
     ImageView topImage;
     TextView topTitle,topSource;
 
+    String articalBody;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        initTheme();
         setContentView(R.layout.detail_layout);
         //将状态栏透明
         if(Build.VERSION.SDK_INT>=21){
@@ -56,10 +59,11 @@ public class DetaiContentActivity extends BaseActivity {
         fillContent();
     }
 
+    private void initTheme() {
+        setTheme(R.style.NightTheme);
+    }
+
     private void init(){
-        TypedValue colorbackground = new TypedValue();//背景色
-        Resources.Theme theme = getTheme();
-        theme.resolveAttribute(R.attr.colorBackground, colorbackground, true);
 
         Intent intent = getIntent();
         contentId = intent.getStringExtra("contentId");
@@ -95,7 +99,7 @@ public class DetaiContentActivity extends BaseActivity {
                 //成功
                 if(response.isSuccessful()&&response.body()!=null){
                     //解析成功
-
+                    articalBody = response.body().getBody();
                     //根据是否为夜间模式来添加css样式
                     String css;
                     if(!isDay){
@@ -149,4 +153,15 @@ public class DetaiContentActivity extends BaseActivity {
         });
     }
 
+    public void SaveArtical(View view) {
+        //这里实现离线保存的逻辑
+        Artical artical = new Artical();
+        artical.setArticalTitle(topTitle.getText().toString());
+        artical.setArticalBody(articalBody);
+        if(artical.save()){
+            Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "保存失败", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
