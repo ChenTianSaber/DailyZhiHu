@@ -116,6 +116,11 @@ public class HomePagerFragment extends Fragment {
             }
         }
 
+        //在个位数的day前面加0
+        if(Integer.parseInt(day)+1<10){
+            day = "0"+day;
+        }
+
         date = year+month+day;
         Log.d("TAG", "getCurrentDate: "+date);
     }
@@ -242,7 +247,13 @@ public class HomePagerFragment extends Fragment {
             }
         }
 
+        //在个位数的day前面加0
+        if(Integer.parseInt(day)+1<10){
+            day = "0"+day;
+        }
+
         toDay = year+month+day;
+        Log.d("TAG", "getToday: "+toDay);
     }
 
     public String formatDate(String date){
